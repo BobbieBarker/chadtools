@@ -1,0 +1,44 @@
+.task-title {
+  font-size: 1.62em;
+}
+
+.fa-margin {
+  margin-bottom: 10px
+}
+
+.break {
+  word-break: break-word;
+}
+
+.layout-color {
+  color: black;
+}
+.layout-color-white {
+  color: white;
+}
+
+
+.important-task {
+  color: #B8860B;
+}
+
+.task-testing {
+  background-color: #F0AD73;
+}
+
+.task-dev {
+  background-color: #AC87F5;
+}
+
+.task-ship {
+  background-color: #94D859;
+}
+
+.task-shipped {
+  background-color: #73F0E7;
+}
+
+.form-label {
+  font-size: 1.3em;
+  font-weight: 700
+}

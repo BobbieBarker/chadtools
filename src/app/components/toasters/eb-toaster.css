@@ -1,0 +1,26 @@
+.warning-toast {
+  background-color: #FF0000 !important;
+}
+
+.warning-toast span {
+  font-size: 1.25em;
+  font-weight: 700;
+}
+
+.success-toast {
+  background-color: #068F28 !important;
+}
+
+.success-toast span {
+  font-size: 1.25em;
+  font-weight: 700;
+}
+
+.info-toast {
+  background-color: #2CD2DE !important;
+}
+
+.info-toast span {
+  font-size: 1.25em;
+  font-weight: 700;
+}

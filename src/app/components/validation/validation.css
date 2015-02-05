@@ -1,0 +1,9 @@
+.invalid-red {
+  color: #FF1F1F;
+  font-size: 1.5em;
+  font-weight: 700;
+}
+
+.valid-green {
+  color: #1AC477;
+}

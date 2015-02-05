@@ -1,0 +1,50 @@
+<md-toolbar flex>
+  <div class="md-toolbar-tools" layout-align="space-between center">
+    <span>
+      <h2>
+        <a ui-sref="dashboard">
+          Chad Tools
+          <md-tooltip>
+            Return To DashBoard
+          </md-tooltip>
+          </a>
+      </h2>
+    </span>
+    <span><small>Logged In As: {{displayname}}</small></span>
+
+    <span hide-sm>
+      <md-button ng-if="user.team === 'Development'">
+        <i class="fa fa-bars fa-2x" ng-click="toggleRight()"></i>
+        <md-tooltip>
+          Toggle SideBar
+        </md-tooltip>
+      </md-button>
+
+      <a ui-sref="account">
+        <md-button>
+          <i class="fa fa-cogs fa-2x"></i>
+        </md-button>
+        <md-tooltip>
+          Manage Account
+        </md-tooltip>
+      </a>
+
+      <a ng-click="logout()" ui-sref="sign-in">
+        <md-button>
+          <i class="fa fa-sign-out fa-2x"></i>
+        </md-button>
+        <md-tooltip>
+          Sign Out
+        </md-tooltip>
+      </a>
+    </span>
+
+    <span show-sm hide-gt-sm>
+      <md-button ng-click="shotBottomGrid($event)">
+        <i class="fa fa-ellipsis-v fa-2x layout-color-white"></i>
+      </md-button>
+    </span>
+  </div>
+</md-toolbar>
+<dashboard-task-sidebar task-list="taskList">
+</dashboard-task-sidebar>

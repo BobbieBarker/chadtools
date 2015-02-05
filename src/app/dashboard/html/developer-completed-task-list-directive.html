@@ -1,0 +1,27 @@
+<div layout="row" layout-wrap ng-if="!currentUser.dashView" layout-align="start start" layout-margin layout-fill layout-padding>
+  <div
+  layout-fill
+  flex-sm="100"
+  flex-md="100"
+  flex-lg="50"
+  flex-gt-lg="33"
+  ng-if="switchTasks != 'Active Tasks'"
+  class="slide-right"
+  ng-class="animation"
+  ng-repeat="(id, bulletin) in bulletinBoard | filter:{team:currentUser.team}">
+    <completed-task-list
+    task-list="taskList"
+    task-type="bulletin.title">
+    </completed-task-list>
+  </div>
+</div>
+
+<md-tabs ng-if="currentUser.dashView && switchTasks === 'Completed Tasks'" class="md-hue-3">
+  <md-tab label="{{bulletin.title}}" ng-repeat="(id, bulletin) in bulletinBoard | filter:{team:currentUser.team}">
+       <completed-task-list
+      task-list="taskList"
+      template-url="app/dashboard/html/completed-task-list-grid.html"
+      task-type="bulletin.title">
+      </completed-task-list>
+    </md-tab>
+</md-tabs>

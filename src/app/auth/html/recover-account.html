@@ -1,0 +1,59 @@
+<div layout="row" layout-align="center center" class="vertical-center-row" flex>
+  <md-card class="md-card-z3"
+  flex="45"
+  flex-sm="100"
+  flex-gt-sm="85"
+  flex-md="75"
+  flex-gt-md="65"
+  flex-lg="55"
+  flex-gt-lg="45">
+    <md-toolbar>
+      <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
+        <span flex>Chad Tools</span>
+        <span flex></span>
+
+        <div layout-padding layout-margin>
+          <a ui-sref="create-acount">
+            <i class="fa fa-plus fa-lg"></i>
+            <md-tooltip>
+              Create Account
+            </md-tooltip>
+          </a>
+
+          <a ui-sref="sign-in">
+            <i class="fa fa-sign-in fa-lg"></i>
+            <md-tooltip>
+              Sign In
+            </md-tooltip>
+          </a>
+        </div>
+
+      </div>
+    </md-toolbar>
+
+      <md-content class="md-padding">
+        <div layout="column" layout-align="center center" layout-fill>
+          <form name="recoveryForm" layout-fill role="form" novalidate flex>
+            <div class="md-padding">
+              <md-input-container>
+                <label for="emailField">Email:</label>
+                <md-input
+                id="emailField"
+                type="email"
+                required
+                ng-model="user.email"
+                class="chad-form-control"></md-input>
+              </md-input-container>
+            </div>
+
+            <div>
+              <md-button ng-click="submit(user)" ng-disabled="recoveryForm.$invalid" class="md-primary md-raised pull-right">
+                Reset Password
+              </md-button>
+            </div>
+
+          </form>
+        </div>
+      </md-content>
+  </md-card>
+</div>

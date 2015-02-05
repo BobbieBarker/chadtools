@@ -1,0 +1,61 @@
+<md-toolbar class="md-tall md-hue-1">
+
+  <div class="md-toolbar-tools">
+    <task-count-display
+    task-list="taskList"
+    current-user="currentUser">
+    </task-count-display>
+  </div>
+
+  <span flex></span>
+
+    <md-switch
+    ng-model="switchTasks"
+    aria-label="task Switch"
+    ng-true-value=" 'Active Tasks' "
+    ng-false-value=" 'Completed Tasks' "
+    flex>
+      <h3>{{ switchTasks }}</h3>
+      <md-tooltip>
+        Toggle Active/Completed Tasks
+      </md-tooltip>
+    </md-switch>
+
+  <div class="md-toolbar-tools" layout-align="end end">
+    <md-button class="md-fab md-accent" ng-click="toggleView()">
+      <i ng-class="{'fa fa-th fa-2x layout-color': currentUser.dashView, 'fa fa-bars fa-2x fa-rotate-90 layout-color': !currentUser.dashView}"></i>
+      <md-tooltip ng-if="currentUser.dashView">
+        Switch to Column View
+      </md-tooltip>
+      <md-tooltip ng-if="!currentUser.dashView">
+        Switch to Grid View
+      </md-tooltip>
+    </md-button>
+  </div>
+
+</md-toolbar>
+
+<div layout="row" layout-align="center center">
+  <account-details-form user="currentUser" ng-if="!currentUser.team || !currentUser.firstName || !currentUser.lastName" flex="50">
+  </account-details-form>
+</div>
+
+
+<div>
+  <develeoper-active-task-list
+  ng-if="currentUser.team"
+  task-list="taskList"
+  user-list="userList"
+  current-user="currentUser"
+  bulletin-board="bulletinBoard"
+  switch-tasks="switchTasks">
+  </develeoper-active-task-list>
+
+  <developer-completed-task-list
+  ng-if="currentUser.team"
+  switch-tasks="switchTasks"
+  task-list="taskList"
+  bulletin-board="bulletinBoard"
+  current-user="currentUser">
+  </developer-completed-task-list>
+</div>

@@ -1,0 +1,11 @@
+<span>
+  <strong>Total Tasks:</strong> {{taskList | taskCount:currentUser.team}},
+</span>
+<span>
+  <strong>Active Tasks:</strong> {{taskList | taskCount:currentUser.team:'active'}},
+</span>
+<span>
+  <strong>Completed Tasks: </strong>{{taskList | taskCount:currentUser.team:'completed'}}
+</span>
+
+

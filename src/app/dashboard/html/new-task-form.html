@@ -1,0 +1,38 @@
+<div layout="row" layout-align="start start" >
+   <div flex layout-fill layout-padding layout-margin>
+     <span class="form-label" flex>Create New Task</span>
+     <form name="newTaskForm" layout="row" layout-sm="column" role="form" novalidate flex layout-padding layout-margin>
+       <md-input-group flex>
+         <label for="taskname">Title:</label>
+         <md-input
+            id="taskname"
+            type="text"
+            class="chad-form-control"
+            required
+            ng-model="task.title"
+            flex>
+          </md-input>
+        </md-input-group>
+        <div  class="chad-select-box" flex>
+          <button
+            type="button"
+            class="btn btn-default"
+            data-placeholder="Select Assignees"
+            data-multiple="true"
+            required
+            style="margin-top:15px"
+            ng-model="task.assignee"
+            ng-options="user.fullname for user in userList | teamFilter:currentUser.team:taskType | nameFilter"
+            flex
+            bs-select>
+          </button>
+        </div>
+        <md-button class="md-fab md-accent md-hue-1" ng-click="addTask(task)" ng-disabled="newTaskForm.$invalid" style="margin-top:15px">
+          <i class="fa fa-plus fa-2x"></i>
+          <md-tooltip>
+            Add Task
+          </md-tooltip>
+        </md-button>
+    </form>
+  </div>
+</div>

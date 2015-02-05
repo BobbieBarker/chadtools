@@ -1,0 +1,39 @@
+<div layout="row" layout-align="center center" layout-fill layout-margin layout-padding flex>
+  <md-card class="md-card-z3" layout-fill flex>
+    <md-toolbar class="md-hue-1">
+      <div class="md-toolbar-tools">
+        <span>Manage Users</span>
+        <span flex></span>
+      </div>
+    </md-toolbar>
+    <md-card-content>
+
+    <md-list layout="row" layout-wrap>
+      <md-item
+      ng-repeat="(id, user) in userList | nameFilter"
+      layout="row"
+      layout-fill
+      layout-align="start start"
+      flex="50"
+      flex-lg="100"
+      flex-md="100"
+      flex-sm="100">
+      <md-whiteframe class="md-whiteframe-z1" layout="row" layout-margin flex layout layout-align="space-around start">
+        <span flex class="task-title">
+          {{user.fullname}}
+        </span>
+        <span class="task-title check-box-label">Admin:</span>
+        <md-checkbox ng-model="user.admin" ng-change="updateUser(user)">
+        </md-checkbox>
+        <md-button class="md-warn md-raised md-hue-2" flex="15" ng-click="destroyUser(user)">
+          <i class="fa fa-times"></i>
+          <md-tooltip>
+            Destroy User
+          </md-tooltip>
+        </md-button>
+      </md-whiteframe>
+      </md-item>
+    </md-list>
+  </md-card-content>
+  </md-card>
+</div>

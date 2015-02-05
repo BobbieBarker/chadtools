@@ -1,0 +1,66 @@
+<div layout="column" layout-align="center center" layout-fill layout-padding layout-margin flex>
+  <md-card class="md-card-z3" layout-fill flex>
+    <md-toolbar class="md-hue-1">
+      <div class="md-toolbar-tools">
+        <span>Manage Your Account</span>
+        <span flex></span>
+      </div>
+    </md-toolbar>
+    <md-card-content>
+
+
+    <div layout="column" layout-align="center center" layout-padding layout-margin flex>
+      <form name="accountMngForm" layout-fill role="form" novalidate flex>
+        <md-input-group flex>
+          <label for="firstName">First Name:</label>
+          <md-input
+          id="firstName"
+          type="text"
+          class="chad-form-control"
+          ng-model="user.firstName"
+          required
+          ng-change="updateUser(user)">
+          </md-input>
+
+          <label for="lastName">Last Name:</label>
+          <md-input
+          id="lastName"
+          type="text"
+          class="chad-form-control"
+          ng-change="updateUser(user)"
+          required
+          ng-model="user.lastName">
+          </md-input>
+
+          <label for="emailField">Email:</label>
+          <md-input
+          id="emailField"
+          type="email"
+          class="chad-form-control"
+          ng-change="updateUser(user)"
+          required
+          ng-model="user.password.email">
+          </md-input>
+        </md-input-group>
+
+        <button
+          type="button"
+          class="btn btn-default"
+          data-placeholder="Select Team"
+          style="margin-bottom:10px"
+          ng-model="user.team"
+          ng-change="updateUser(user)"
+          required
+          ng-options="team.name as team.name for team in teamList"
+          flex="30"
+          bs-select>
+        </button>
+
+        <md-button ng-click="updateUser(user)" ng-disabled="accountMngForm.$invalid" class="md-primary md-hue-3 md-raised chad-form-control" flex>
+        Update Account
+        </md-button>
+      </form>
+    </div>
+  </md-card-content>
+  </md-card>
+</div>

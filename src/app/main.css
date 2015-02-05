@@ -1,0 +1,35 @@
+
+/**
+ * Appearence Over Rides
+ */
+a {
+    text-decoration: none !important;
+}
+
+a {color:#FFFFFF;}      /* unvisited link */
+a:visited {color:#FFFFFF;}  /* visited link */
+a:hover {color:#FFFFFF;}  /* mouse over link */
+a:active {color:#FFFFFF;}  /* selected link */
+
+
+
+.chad-form-control {
+  width: 100%;
+}
+
+.chad-select-box {
+  padding-bottom: 2px;
+  margin: 15px 0px 20px 0px;
+  position: relative;
+  display: block
+}
+
+
+
+.success-check {
+  color: #4F8A10;
+}
+
+.deletion-red {
+  color: #d9534f;
+}

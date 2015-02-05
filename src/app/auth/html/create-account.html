@@ -1,0 +1,102 @@
+<div layout="row" layout-align="center center" class="vertical-center-row" flex>
+  <md-card class="md-card-z3"
+  flex="45"
+  flex-sm="100"
+  flex-gt-sm="85"
+  flex-md="75"
+  flex-gt-md="65"
+  flex-lg="55"
+  flex-gt-lg="45">
+    <md-toolbar>
+      <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
+        <span flex>Chad Tools</span>
+        <span flex></span>
+
+        <div layout-padding layout-margin>
+        <a ui-sref="sign-in">
+          <i class="fa fa-sign-in fa-lg"></i>
+          <md-tooltip>
+            Sign In
+          </md-tooltip>
+        </a>
+
+        <a ui-sref="recover-account">
+          <i class="fa fa-question fa-lg"></i>
+          <md-tooltip>
+            Recover Account
+          </md-tooltip>
+        </a>
+      </div>
+
+      </div>
+    </md-toolbar>
+
+      <md-card-content layout="row" layout-padding layout-margin>
+        <div layout="column" layout-align="center center">
+          <form name="createAccntForm" layout-fill role="form" novalidate flex>
+            <div class="md-padding">
+              <md-input-container>
+                <label for="emailField">
+                  Email:
+                  <md-tooltip>
+                    cheesus
+                  </md-tooltip>
+                </label>
+
+                <md-input
+                id="emailField"
+                type="text"
+                ng-model="user.email"
+                name="emailField"
+                class="chad-form-control"
+                required
+                email-input="user.email">
+                </md-input>
+                <div flex>
+                    <p ng-show="createAccntForm.emailField.$error.email" class="invalid-red">
+                        Please Enter A Valid Email Address.
+                    </p>
+                </div>
+              </md-input-container>
+
+              <md-input-container>
+                <label for="passwordField">Password:</label>
+                <md-input
+                type="password"
+                ng-model="user.password"
+                name="passwordField"
+                password-input="user.password"
+                required
+                class="chad-form-control"></md-input>
+
+              </md-input-container>
+              <div flex>
+                <p
+                ng-show="createAccntForm.passwordField.$pristine || !createAccntForm.passwordField.$error.password && !createAccntForm.passwordField.$valid">
+                Must contain one special character, one upper case letter, and be atleast 8 chacters in length.
+              </p>
+              <p
+              ng-show="createAccntForm.passwordField.$error.password"
+              class="invalid-red">
+              Must contain one special character, one upper case letter, and be atleast 8 chacters in length.
+            </p>
+            <p
+            ng-show="createAccntForm.passwordField.$valid && !createAccntForm.passwordField.$pristine"
+            class="valid-green">
+            Nice Password! If you forget it, you can use our password recovery feature and get a new one!
+          </p>
+        </div>
+            </div>
+
+            <div>
+              <md-button ng-click="create(user)" ng-disabled="createAccntForm.$invalid" class="md-primary md-raised pull-right">
+                Create Account
+              </md-button>
+            </div>
+
+          </form>
+        </div>
+      </md-card-content>
+
+  </md-card>
+</div>

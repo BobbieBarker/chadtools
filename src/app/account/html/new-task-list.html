@@ -1,0 +1,73 @@
+<div layout="row" layout-align="center center" layout-fill layout-margin layout-padding flex>
+  <md-card class="md-card-z3" layout-fill flex>
+    <md-toolbar class="md-hue-1">
+      <div class="md-toolbar-tools">
+        <span>Manage Task Lists</span>
+        <span flex></span>
+      </div>
+    </md-toolbar>
+    <md-card-content>
+
+    <md-subheader class="md-primary">Create New Task List</md-subheader>
+    <div layout="row" layout-align="space-between start" layout-padding layout-margin layout-fill flex>
+      <form name="newTaskListForm" layout="row" layout-fill layout-padding layout-margin role="form" novalidate flex>
+        <md-input-group flex>
+          <label for="taskListTitle">Title</label>
+          <md-input
+          id="taskListTitle"
+          type="text"
+          class="chad-form-control"
+          ng-model="taskList.title"
+          required>
+          </md-input>
+        </md-input-group>
+        <button
+          type="button"
+          class="btn btn-default"
+          data-placeholder="Select Team"
+          style="margin-bottom:10px"
+          ng-model="taskList.team"
+          ng-change="updateUser(user)"
+          required
+          ng-options="team.name as team.name for team in teamList"
+          flex
+          bs-select>
+        </button>
+        <md-button
+        ng-click="addTaskList(taskList)"
+        class="md-fab"
+        style="margin-top:15px">
+          <i class="fa fa-plus fa-lg"></i>
+          <md-tooltip>
+            Create Task List
+          </md-tooltip>
+        </md-button>
+      </form>
+    </div>
+
+    <md-subheader class="md-primary">Manage Task List</md-subheader>
+
+    <md-list layout="row" layout-wrap>
+      <md-item
+      ng-repeat="(id, board) in bulletinBoard"
+      layout="row"
+      layout-fill
+      layout-align="start start "
+      flex="25"
+      flex-sm="50">
+        <md-whiteframe class="md-whiteframe-z1" layout="row" layout-margin flex layout layout-align="space-around start">
+          <span flex class="task-title">
+            {{board.title}}
+          </span>
+          <md-button class="md-warn md-raised md-hue-2" flex="15" ng-click="showAlert($event, board)">
+            <i class="fa fa-times"></i>
+            <md-tooltip>
+              Destroy Task List
+            </md-tooltip>
+          </md-button>
+        </md-whiteframe>
+      </md-item>
+    </md-list>
+  </md-card-content>
+  </md-card>
+</div>

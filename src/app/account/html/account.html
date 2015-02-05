@@ -1,0 +1,48 @@
+<div layout="row" layout-align="start start" layout-fill layout-margin layout-padding layout-wrap hide show-gt-md>
+
+    <div layout="column" layout-align="start start" layout-fill layout-margin layout-padding flex>
+      <account-details-form user="user" layout-fill
+        flex-gt-lg="33"
+        flex-lg="33"
+        flex-md="100"
+        flex-sm="100">
+      </account-details-form>
+      <new-task-list-form bulletin-board="bulletinBoard" task-list="taskList" layout-fill ng-if="user.admin"
+      flex-gt-lg="33"
+      flex-lg="33"
+      flex-md="10"
+      flex-sm="100">
+      </new-task-list-form>
+    </div>
+
+    <div layout="column" layout-align="start start" layout-fill layout-margin layout-padding flex>
+      <user-management user-list="userList" layout-fill ng-if="user.admin"
+        flex-gt-lg="33"
+        flex-lg="33"
+        flex-md="100"
+        flex-sm="100">
+      </user-management>
+    </div>
+
+</div>
+
+<div layout="row" layout-align="start start" layout-fill layout-margin layout-padding layout-wrap hide-gt-md>
+    <account-details-form user="user" layout-fill
+    flex-gt-lg="33"
+    flex-lg="33"
+    flex-md="100"
+    flex-sm="100">
+  </account-details-form>
+  <new-task-list-form bulletin-board="bulletinBoard" task-list="taskList" layout-fill ng-if="user.admin"
+  flex-gt-lg="33"
+  flex-lg="33"
+  flex-md="100"
+  flex-sm="100">
+  </new-task-list-form>
+  <user-management user-list="userList" layout-fill ng-if="user.admin"
+  flex-gt-lg="33"
+  flex-lg="33"
+  flex-md="100"
+  flex-sm="100">
+  </user-management>
+</div>

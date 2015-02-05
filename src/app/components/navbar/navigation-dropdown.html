@@ -1,0 +1,39 @@
+<md-bottom-sheet class="md-grid">
+  <md-list>
+
+    <md-item>
+      <md-button
+      ng-if="user.team === 'Development'"
+      ng-click="hideSheet(); toggleRight();"
+      class="md-grid-item-content">
+        <i class="fa fa-bars fa-2x layout-color"></i>
+        <md-tooltip>
+          Toggle SideBar
+        </md-tooltip>
+      </md-button>
+    </md-item>
+
+    <md-item>
+      <a ui-sref="account">
+        <md-button ng-click="hideSheet()">
+          <i class="fa fa-cogs fa-2x layout-color"></i>
+        </md-button>
+        <md-tooltip>
+          Manage Account
+        </md-tooltip>
+      </a>
+    </md-item>
+
+    <md-item>
+      <a ng-click="logout()" ui-sref="sign-in">
+      <md-button ng-click="hideSheet()">
+        <i class="fa fa-sign-out fa-2x layout-color"></i>
+      </md-button>
+      <md-tooltip>
+        Sign Out
+      </md-tooltip>
+    </a>
+    </md-item>
+
+  </md-list>
+</md-bottom-sheet>

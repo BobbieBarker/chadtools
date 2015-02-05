@@ -1,0 +1,81 @@
+<md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
+  <md-toolbar class="md-theme-light">
+    <h1 class="md-toolbar-tools">Task List Status</h1>
+  </md-toolbar>
+
+  <md-content class="md-padding" class="md-padding">
+
+    <md-card layout-fill drop-target on-drop="setToDeployed(task)">
+      <h2>Shipped Today</h2>
+      <md-list>
+        <md-item ng-repeat="(id, task) in taskList | filter:{status:'shipped'}">
+          <md-item-content draggable="true" eb-draggable="task">
+            <div class="md-tile-left">
+              <h4>{{task.title}}</h4>
+              <strong>Started:</strong>
+              <span task-duration task="task.started_at"></span>
+              <md-divider></md-divider>
+            </div>
+            <div class="md-tile-content" layout="row" layout-align="end start" layout-fill layout-padding>
+              <i class="fa fa-check fa-3x success-check" ng-click="completed(task)"></i>
+            </div>
+          </md-item-content>
+        </md-item>
+      </md-list>
+    </md-card>
+
+    <md-card layout-fill drop-target on-drop="setToDeploy(task)">
+      <h2>Ready To Ship</h2>
+      <md-list>
+        <md-item ng-repeat="(id, task) in taskList | filter:{status:'deploy'}">
+          <md-item-content draggable="true" eb-draggable="task">
+            <div class="md-tile-left">
+              <h4>{{task.title}}</h4>
+              <strong>Started:</strong>
+              <span task-duration task="task.started_at"></span>
+              <md-divider></md-divider>
+            </div>
+          </md-item-content>
+        </md-item>
+      </md-list>
+    </md-card>
+
+    <md-card layout-fill drop-target on-drop="setToTest(task)" >
+      <h2>To Test</h2>
+      <md-list>
+        <md-item ng-repeat="(id, task) in taskList | filter:{status:'test'}">
+          <md-item-content draggable="true" eb-draggable="task">
+            <div class="md-tile-left">
+              <h4>{{task.title}}</h4>
+              <strong>Started:</strong>
+              <span task-duration task="task.started_at"></span>
+              <md-divider></md-divider>
+            </div>
+          </md-item-content>
+        </md-item>
+      </md-list>
+    </md-card>
+
+
+    <md-card layout-fill drop-target on-drop="setToDevelopment(task)">
+      <h2>In Development</h2>
+      <md-list>
+        <md-item ng-repeat="(id, task) in taskList | filter:{status:'development'}">
+          <md-item-content draggable="true" eb-draggable="task">
+            <div class="md-tile-left">
+              <h4>{{task.title}}</h4>
+              <strong>Started:</strong>
+              <span task-duration task="task.started_at"></span>
+              <md-divider></md-divider>
+            </div>
+          </md-item-content>
+        </md-item>
+      </md-list>
+    </md-card>
+
+    <md-button ng-click="close()" class="md-primary">
+      Close Task Status List
+    </md-button>
+  </md-content>
+
+</md-sidenav>

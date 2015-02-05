@@ -1,0 +1,44 @@
+<div md-padding layout-margin>
+  <md-card class="md-card-z1" flex>
+    <div layout="row" layout-fill layout-align="space-between">
+      <h2 flex>{{taskType}}</h2>
+    </div>
+
+    <md-list layout-padding>
+      <md-item ng-repeat="(id, task) in taskList | filter:{status:'completed'} | taskCategoryFilter:taskType" flex>
+        <md-whiteframe class="md-whiteframe-z3" layout="row" layout-margin>
+
+          <div layout="column" layout-align="start start" layout-margin flex>
+              <div flex>
+                <p class="task-title"><strong>Title:</strong> {{task.title}}</p>
+
+                <p ng-repeat="(id, assignee) in task.assignee | nameFilter">
+                <strong>Assignee:</strong> {{assignee.fullname}}
+                </p>
+              </div>
+            </div>
+          <div layout="column" layout-align="start end" layout-margin flex>
+
+            <div layout="row" layout-align="end start" layout-margin>
+              <i class="fa fa-reply fa-3x success-check" ng-click="resumeTask(task)" flex>
+                <md-tooltip>
+                  Set Task Active
+                </md-tooltip>
+              </i>
+              <i class="fa fa-times fa-3x deletion-red" ng-click="destroy(task)" flex>
+                <md-tooltip>
+                  Destroy Task
+                </md-tooltip>
+              </i>
+            </div>
+
+            <div layout="column" layout-align="end start" layout-margin>
+              <p flex><strong>Created:</strong> <span task-duration task="task"></span></p>
+              <p ng-if="task.status" flex><strong>Status:</strong> {{task.status}}</p>
+            </div>
+          </div>
+        </md-whiteframe>
+      </md-item>
+    </md-list>
+  </md-card>
+</div>
