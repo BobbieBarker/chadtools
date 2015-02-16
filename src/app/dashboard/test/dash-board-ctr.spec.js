@@ -37,9 +37,9 @@ describe('dash board controller', function(){
     expect($scope.toggleView).toEqual(jasmine.any(Function));
   })
 
-  if('should assign dashview true, if dashview is undefined and call currentUser$save', function(){
+  it('should assign dashview true, if dashview is undefined and call currentUser$save', function(){
     $scope.toggleView();
-    expect(currentUser.dashView).toEqual(true);
+    expect(mockUser.dashView).toEqual(true);
     expect(mockUser.$save).toHaveBeenCalled();
   })
 

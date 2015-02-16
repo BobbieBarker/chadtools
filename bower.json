@@ -16,7 +16,8 @@
     "angular-strap": "*",
     "bootstrap": "*",
     "moment": "*",
-    "ngAnimate": "*"
+    "ngAnimate": "*",
+    "mockfirebase": "*"
 
   },
   "devDependencies": {
