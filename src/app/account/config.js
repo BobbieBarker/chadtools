@@ -12,20 +12,20 @@ angular.module('chadTools.account.config', [])
             return fireBaseAuth.auth().$requireAuth();
           },
           currentUser: function($fireBaseUser, Session){
-           return $fireBaseUser.user(Session.id).$asObject();
+           return $fireBaseUser.user(Session.id);
           },
           bulletinBoard: function($fireBaseBulletinBoard){
-            return $fireBaseBulletinBoard.bulletinBoard().$asArray().$loaded().then(function(data){
+            return $fireBaseBulletinBoard.bulletinBoard().$loaded().then(function(data){
               return data;
             });
           },
           taskList: function($fireBaseTasks){
-            return $fireBaseTasks.taskList().$asArray().$loaded().then(function(data){
+            return $fireBaseTasks.taskList().$loaded().then(function(data){
               return data;
             });
           },
           userList: function($fireBaseUser){
-            return $fireBaseUser.userList().$asArray().$loaded().then(function(data){
+            return $fireBaseUser.userList().$loaded().then(function(data){
               return data;
             });
           }

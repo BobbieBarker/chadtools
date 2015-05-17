@@ -58,14 +58,12 @@
     });
 
     $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams, error){
-      console.log()
       if((_.isEqual(fromState.name, 'sign-in') || _.isEqual(fromState.name, 'create-acount')) && _.isEqual(toState.name, 'dashboard')){
         $scope.currentUser = Session.firebaseToken;
       }
     });
 
     $scope.$on('logout', function(){
-      console.log('fook')
       $scope.currentUser = false;
     });
 

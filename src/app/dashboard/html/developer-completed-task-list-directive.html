@@ -4,10 +4,8 @@
   flex-sm="100"
   flex-md="100"
   flex-lg="50"
-  flex-gt-lg="33"
-  ng-if="switchTasks != 'Active Tasks'"
-  class="slide-right"
-  ng-class="animation"
+  flex-gt-lg="30"
+  ng-show="switchTasks != 'Active Tasks'"
   ng-repeat="(id, bulletin) in bulletinBoard | filter:{team:currentUser.team}">
     <completed-task-list
     task-list="taskList"
@@ -16,7 +14,7 @@
   </div>
 </div>
 
-<md-tabs ng-if="currentUser.dashView && switchTasks === 'Completed Tasks'" class="md-hue-3">
+<md-tabs ng-if="currentUser.dashView && switchTasks === 'Completed Tasks'" class="md-hue-3" md-dynamic-height>
   <md-tab label="{{bulletin.title}}" ng-repeat="(id, bulletin) in bulletinBoard | filter:{team:currentUser.team}">
        <completed-task-list
       task-list="taskList"

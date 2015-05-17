@@ -21,6 +21,5 @@ angular.module('chadTools.auth.sign-in', [])
             }
           })
         });
-
     };
   });

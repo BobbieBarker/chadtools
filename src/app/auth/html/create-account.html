@@ -43,7 +43,7 @@
                   </md-tooltip>
                 </label>
 
-                <md-input
+                <input
                 id="emailField"
                 type="text"
                 ng-model="user.email"
@@ -51,7 +51,6 @@
                 class="chad-form-control"
                 required
                 email-input="user.email">
-                </md-input>
                 <div flex>
                     <p ng-show="createAccntForm.emailField.$error.email" class="invalid-red">
                         Please Enter A Valid Email Address.
@@ -61,13 +60,13 @@
 
               <md-input-container>
                 <label for="passwordField">Password:</label>
-                <md-input
+                <input
                 type="password"
                 ng-model="user.password"
                 name="passwordField"
                 password-input="user.password"
                 required
-                class="chad-form-control"></md-input>
+                class="chad-form-control">
 
               </md-input-container>
               <div flex>

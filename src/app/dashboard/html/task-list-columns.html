@@ -68,8 +68,8 @@
             <div class="" flex>
               <p class="task-title break"><strong>Title:</strong> {{task.title}}</p>
 
-              <p ng-repeat="(id, assignee) in task.assignee | nameFilter">
-              <strong>Assignee:</strong> {{assignee.fullname}}
+              <p>
+              <strong>Assignee:</strong> {{task.assignee.fullname}}
               </p>
             </div>
           </div>

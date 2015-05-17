@@ -16,19 +16,19 @@ angular.module('chadTools.firebase.eb-firebase', [])
     this.auth = function(user){
       return $firebaseAuth(fireBaseRef);
     };
-  }).service('$fireBaseUser', function($firebase, fireBaseRef){
+  }).service('$fireBaseUser', function($firebaseObject, $firebaseArray, fireBaseRef){
     this.user = function(user){
-      return $firebase(fireBaseRef.child('users').child(user));
+      return $firebaseObject(fireBaseRef.child('users').child(user));
     };
     this.userList = function(){
-      return $firebase(fireBaseRef.child('users'));
+      return $firebaseArray(fireBaseRef.child('users'));
     };
-  }).service('$fireBaseTasks', function($firebase, fireBaseRef){
+  }).service('$fireBaseTasks', function($firebaseArray, fireBaseRef){
     this.taskList = function(){
-      return $firebase(fireBaseRef.child('taskList'));
+      return $firebaseArray(fireBaseRef.child('taskList'));
     };
-  }).service('$fireBaseBulletinBoard', function($firebase, fireBaseRef){
+  }).service('$fireBaseBulletinBoard', function($firebaseArray, fireBaseRef){
     this.bulletinBoard = function(){
-      return $firebase(fireBaseRef.child('bulletinBoard'));
+      return $firebaseArray(fireBaseRef.child('bulletinBoard'));
     };
   });

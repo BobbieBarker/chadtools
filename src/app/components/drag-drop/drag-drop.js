@@ -7,13 +7,15 @@ angular.module('drag-drop', [])
         dragObj: '=ebDraggable',
       },
       link: function(scope, element, attrs) {
-        
+        console.log(element)
         element.bind('dragstart', function(e) {
+          console.log('this happens')
           e.dataTransfer.setData('obj', JSON.stringify(scope.dragObj));
           scope.$emit('dragstart');
         });
 
         element.bind('dragstop', function(e) {
+          console.log('this happens')
           scope.$emit('dragstop');
         });
       }
@@ -30,11 +32,14 @@ angular.module('drag-drop', [])
         var dragging = 0;
 
         element.bind('dragover', function(e) {
+          console.log('this happens')
           e.preventDefault();
           e.dataTransfer.dropEffect = 'move';
         });
 
         element.bind('dragenter', function(e) {
+          console.log('this happens')
+
           dragging++;
           $(element).addClass('drag-over');
         });

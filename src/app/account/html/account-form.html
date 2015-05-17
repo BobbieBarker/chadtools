@@ -11,50 +11,44 @@
 
     <div layout="column" layout-align="center center" layout-padding layout-margin flex>
       <form name="accountMngForm" layout-fill role="form" novalidate flex>
-        <md-input-group flex>
+        <md-input-container flex>
           <label for="firstName">First Name:</label>
-          <md-input
+          <input
           id="firstName"
           type="text"
           class="chad-form-control"
           ng-model="user.firstName"
           required
           ng-change="updateUser(user)">
-          </md-input>
+        </md-input-container>
 
+        <md-input-container flex>
           <label for="lastName">Last Name:</label>
-          <md-input
+          <input
           id="lastName"
           type="text"
           class="chad-form-control"
           ng-change="updateUser(user)"
           required
           ng-model="user.lastName">
-          </md-input>
+        </md-input-container>
 
+        <md-input-container flex>
           <label for="emailField">Email:</label>
-          <md-input
+          <input
           id="emailField"
           type="email"
           class="chad-form-control"
           ng-change="updateUser(user)"
           required
           ng-model="user.password.email">
-          </md-input>
-        </md-input-group>
+        </md-input-container>
 
-        <button
-          type="button"
-          class="btn btn-default"
-          data-placeholder="Select Team"
-          style="margin-bottom:10px"
-          ng-model="user.team"
-          ng-change="updateUser(user)"
-          required
-          ng-options="team.name as team.name for team in teamList"
-          flex="30"
-          bs-select>
-        </button>
+        <md-select ng-model="user.team" placeholder="choose your team">
+          <md-option ng-value="team.name" ng-repeat="team in teamList">
+            {{team.name}}
+          </md-option>
+        </md-select>
 
         <md-button ng-click="updateUser(user)" ng-disabled="accountMngForm.$invalid" class="md-primary md-hue-3 md-raised chad-form-control" flex>
         Update Account

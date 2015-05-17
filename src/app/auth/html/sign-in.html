@@ -38,25 +38,21 @@
             <div class="md-padding" layout-fill flex>
               <md-input-container flex>
                 <label for="emailField">Email:</label>
-                <md-input
+                <input
                 id="emailField"
                 type="email"
                 ng-model="user.email"
                 name="emailField"
                 required
-                class="chad-form-control"
                 email-input="user.email">
-                </md-input>
               </md-input-container>
 
               <md-input-container flex>
                 <label for="passwordField">Password:</label>
-                <md-input
+                <input
                 type="password"
                 ng-model="user.password"
-                required
-                class="chad-form-control">
-              </md-input>
+                required>
               </md-input-container>
             </div>
 

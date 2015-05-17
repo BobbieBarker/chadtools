@@ -60,7 +60,7 @@
       | taskStatus
       | sortTask:order.by:order.reverse
       | myTasks:toggleFilter:currentUser
-      | starred"
+      | starred track by $index"
       layout="row"
       layout-fill
       flex-sm="100"
@@ -71,10 +71,16 @@
 
           <div layout="column" layout-align="start start" layout-margin flex >
             <div flex>
-              <p class="task-title"><strong>Title:</strong> {{task.title}}</p>
+              <p class="task-title">
+                <strong>Title:</strong>
+                {{task.title}}
+              </p>
 
-              <p ng-repeat="(id, assignee) in task.assignee | nameFilter">
-              <strong>Assignee:</strong> {{assignee.fullname}}
+              <p >
+                <strong>
+                  Assignee:
+                </strong> 
+                {{task.assignee.fullname}}
               </p>
             </div>
           </div>

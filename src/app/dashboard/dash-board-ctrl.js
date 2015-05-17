@@ -1,7 +1,7 @@
 'use strict';
 angular.module('chadTools.dashboard.controller', [])
   .controller('dashBoardCtrl', function($scope, $filter, currentUser, userList, taskList, bulletinBoard, taskToaster){
-
+    console.log(currentUser)
     //This filter looks for tasks that have already been shipped and updates their status to completed.
     $scope.taskList = ($filter)('completedTaskFilter')(taskList);
     $scope.userList = userList;

@@ -3,12 +3,14 @@
     <h1 class="md-toolbar-tools">Task List Status</h1>
   </md-toolbar>
 
-  <md-content class="md-padding" class="md-padding">
+  <md-content layout-padding layout-margin>
 
     <md-card layout-fill drop-target on-drop="setToDeployed(task)">
+      <md-card-content>
       <h2>Shipped Today</h2>
+
       <md-list>
-        <md-item ng-repeat="(id, task) in taskList | filter:{status:'shipped'}">
+        <md-list-item ng-repeat="(id, task) in taskList | filter:{status:'shipped'}">
           <md-item-content draggable="true" eb-draggable="task">
             <div class="md-tile-left">
               <h4>{{task.title}}</h4>
@@ -20,14 +22,18 @@
               <i class="fa fa-check fa-3x success-check" ng-click="completed(task)"></i>
             </div>
           </md-item-content>
-        </md-item>
+        </md-list-item>
       </md-list>
+      <md-card-content>
     </md-card>
+
+    <md-divider></md-divider>
 
     <md-card layout-fill drop-target on-drop="setToDeploy(task)">
+      <md-card-content>
       <h2>Ready To Ship</h2>
       <md-list>
-        <md-item ng-repeat="(id, task) in taskList | filter:{status:'deploy'}">
+        <md-list-item ng-repeat="(id, task) in taskList | filter:{status:'deploy'}">
           <md-item-content draggable="true" eb-draggable="task">
             <div class="md-tile-left">
               <h4>{{task.title}}</h4>
@@ -36,14 +42,18 @@
               <md-divider></md-divider>
             </div>
           </md-item-content>
-        </md-item>
+        </md-list-item>
       </md-list>
+      <md-card-content>
     </md-card>
+
+    <md-divider></md-divider>
 
     <md-card layout-fill drop-target on-drop="setToTest(task)" >
+      <md-card-content>
       <h2>To Test</h2>
       <md-list>
-        <md-item ng-repeat="(id, task) in taskList | filter:{status:'test'}">
+        <md-list-item ng-repeat="(id, task) in taskList | filter:{status:'test'}">
           <md-item-content draggable="true" eb-draggable="task">
             <div class="md-tile-left">
               <h4>{{task.title}}</h4>
@@ -52,15 +62,18 @@
               <md-divider></md-divider>
             </div>
           </md-item-content>
-        </md-item>
+        </md-list-item>
       </md-list>
+      <md-card-content>
     </md-card>
 
+    <md-divider></md-divider>
 
     <md-card layout-fill drop-target on-drop="setToDevelopment(task)">
+      <md-card-content>
       <h2>In Development</h2>
       <md-list>
-        <md-item ng-repeat="(id, task) in taskList | filter:{status:'development'}">
+        <md-list-item ng-repeat="(id, task) in taskList | filter:{status:'development'}">
           <md-item-content draggable="true" eb-draggable="task">
             <div class="md-tile-left">
               <h4>{{task.title}}</h4>
@@ -69,8 +82,9 @@
               <md-divider></md-divider>
             </div>
           </md-item-content>
-        </md-item>
+        </md-list-item>
       </md-list>
+      <md-card-content>
     </md-card>
 
     <md-button ng-click="close()" class="md-primary">

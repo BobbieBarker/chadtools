@@ -11,28 +11,20 @@
     <md-subheader class="md-primary">Create New Task List</md-subheader>
     <div layout="row" layout-align="space-between start" layout-padding layout-margin layout-fill flex>
       <form name="newTaskListForm" layout="row" layout-fill layout-padding layout-margin role="form" novalidate flex>
-        <md-input-group flex>
+        <md-input-container flex>
           <label for="taskListTitle">Title</label>
-          <md-input
+          <input
           id="taskListTitle"
           type="text"
           class="chad-form-control"
           ng-model="taskList.title"
           required>
-          </md-input>
-        </md-input-group>
-        <button
-          type="button"
-          class="btn btn-default"
-          data-placeholder="Select Team"
-          style="margin-bottom:10px"
-          ng-model="taskList.team"
-          ng-change="updateUser(user)"
-          required
-          ng-options="team.name as team.name for team in teamList"
-          flex
-          bs-select>
-        </button>
+        </md-input-container>
+
+        <md-select ng-model="user.team" placeholder="choose your team">
+          <md-option ng-value="team.name" ng-repeat="team in teamList">{{team.name}}</md-option>
+        </md-select>
+
         <md-button
         ng-click="addTaskList(taskList)"
         class="md-fab"
@@ -42,6 +34,7 @@
             Create Task List
           </md-tooltip>
         </md-button>
+
       </form>
     </div>
 

@@ -8,13 +8,13 @@ angular.module('chadTools.nav')
     }
 
   }).controller('navCtrl', function($scope, $rootScope, $fireBaseUser, $fireBaseTasks, $mdSidenav, $mdToast, $mdBottomSheet, Session, fireBaseAuth){
-    $scope.user = $fireBaseUser.user(Session.id).$asObject();
+    $scope.user = $fireBaseUser.user(Session.id);
     $scope.user.$loaded().then(function(data){
       var emailName = data.password.email.split('@');
       $scope.displayname = emailName[0];
     });
 
-    $fireBaseTasks.taskList().$asArray().$loaded().then(function(data){
+    $fireBaseTasks.taskList().$loaded().then(function(data){
       $scope.taskList = data;
     });
 

@@ -13,15 +13,15 @@
     flex-sm="100"
     flex-md="100"
     flex-lg="50"
-    flex-gt-lg="33">
+    flex-gt-lg="30">
       <md-whiteframe class="md-whiteframe-z3" layout="row" layout-margin flex>
 
         <div layout="column" layout-align="start start" layout-margin flex>
             <div flex>
               <p class="task-title"><strong>Title:</strong> {{task.title}}</p>
 
-              <p ng-repeat="(id, assignee) in task.assignee | nameFilter">
-              <strong>Assignee:</strong> {{assignee.fullname}}
+              <p>
+              <strong>Assignee:</strong> {{task.assignee.fullname}}
               </p>
             </div>
           </div>
